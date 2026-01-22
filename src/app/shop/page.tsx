@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { RainbowButton } from "@/components/magicui/rainbow-button";
+import { useCart } from "@/context/CartContext";
 
 const products = [
     {
@@ -29,6 +32,8 @@ const products = [
 ];
 
 export default function ShopPage() {
+    const { addToCart } = useCart();
+
     return (
         <main className="min-h-screen bg-black text-white pt-32 pb-24 px-6 md:px-12">
             <div className="max-w-7xl mx-auto">
@@ -59,7 +64,10 @@ export default function ShopPage() {
                             <p className="font-sans text-white/40 text-sm leading-6 mb-6">
                                 {p.desc}
                             </p>
-                            <RainbowButton className="w-full h-10 text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <RainbowButton
+                                onClick={() => addToCart(p)}
+                                className="w-full h-10 text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0"
+                            >
                                 ADD TO CART
                             </RainbowButton>
                         </div>
