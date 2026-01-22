@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { RainbowButton } from "@/components/magicui/rainbow-button";
 
 const products = [
@@ -6,21 +7,24 @@ const products = [
         name: "Obsidian Origin I",
         price: "$45",
         desc: "Single origin, anaerobic wash. Notes of dark chocolate and smoke.",
-        tag: "BEAN"
+        tag: "BEAN",
+        image: "/images/shop-bean.png"
     },
     {
         id: 2,
         name: "Cold Brew Serum",
         price: "$60",
         desc: "Concentrated extraction. 12 hour drip. Pure caffeine density.",
-        tag: "LIQUID"
+        tag: "LIQUID",
+        image: "/images/shop-serum.png"
     },
     {
         id: 3,
         name: "The Vessel",
         price: "$85",
         desc: "Double-walled borosilicate glass. Keeps cold for 24 hours.",
-        tag: "GEAR"
+        tag: "GEAR",
+        image: "/images/shop-vessel.png"
     }
 ];
 
@@ -37,14 +41,16 @@ export default function ShopPage() {
                     {products.map((p) => (
                         <div key={p.id} className="group cursor-pointer">
                             <div className="aspect-[3/4] bg-white/5 mb-6 relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                <div className="absolute top-4 left-4 text-[10px] font-mono border border-white/20 px-2 py-1 text-white/60">
+                                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
+                                <div className="absolute top-4 left-4 text-[10px] font-mono border border-white/20 px-2 py-1 text-white/60 z-30">
                                     {p.tag}
                                 </div>
-                                {/* Placeholder for product image */}
-                                <div className="w-full h-full flex items-center justify-center text-white/5 font-serif text-9xl group-hover:scale-105 transition-transform duration-700">
-                                    {p.id}
-                                </div>
+                                <Image
+                                    src={p.image}
+                                    alt={p.name}
+                                    fill
+                                    className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                                />
                             </div>
                             <div className="flex justify-between items-start mb-2">
                                 <h3 className="font-serif text-2xl group-hover:text-white/80 transition-colors">{p.name}</h3>

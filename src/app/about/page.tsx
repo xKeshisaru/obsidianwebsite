@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutPage() {
     return (
         <main className="min-h-screen bg-black text-white pt-32 pb-24 px-6 md:px-12">
@@ -14,10 +16,12 @@ export default function AboutPage() {
 
                 <section className="grid md:grid-cols-2 gap-12 items-center border-t border-white/10 pt-12">
                     <div className="aspect-square bg-white/5 rounded-sm relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-black/80 to-transparent z-10" />
-                        <div className="absolute inset-0 flex items-center justify-center text-white/20 font-serif text-9xl select-none group-hover:scale-110 transition-transform duration-1000">
-                            01
-                        </div>
+                        <Image
+                            src="/images/about-cryo.png"
+                            alt="Cryogenic Selection"
+                            fill
+                            className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000"
+                        />
                     </div>
                     <div className="space-y-6">
                         <h2 className="font-serif text-3xl text-white">Cryogenic Selection</h2>
@@ -37,10 +41,12 @@ export default function AboutPage() {
                         </p>
                     </div>
                     <div className="aspect-square bg-white/5 rounded-sm relative overflow-hidden md:order-2 group">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
-                        <div className="absolute inset-0 flex items-center justify-center text-white/20 font-serif text-9xl select-none group-hover:scale-110 transition-transform duration-1000">
-                            02
-                        </div>
+                        <Image
+                            src="/images/about-roast.png"
+                            alt="Obsidian Roast"
+                            fill
+                            className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000"
+                        />
                     </div>
                 </section>
 
