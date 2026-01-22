@@ -26,16 +26,7 @@ function RitualView({ images }: { images: HTMLImageElement[] }) {
   return (
     <main className="bg-black min-h-screen text-white selection:bg-white/20">
 
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-40 p-6 mix-blend-difference flex justify-between items-center pointer-events-none">
-        <div className="flex items-center gap-2 pointer-events-auto">
-          <Bean className="w-6 h-6" />
-          <span className="font-serif tracking-widest font-bold">OBSIDIAN</span>
-        </div>
-        <button className="text-xs font-sans tracking-[0.2em] border-b border-white/0 hover:border-white transition-all pointer-events-auto">
-          PRE-ORDER
-        </button>
-      </nav>
+      {/* Navbar is global in layout.tsx */}
 
       {/* Scroll-Driven Hero Container (300vh) */}
       <div ref={heroRef} className="relative h-[300vh] z-10">
