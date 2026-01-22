@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { CartProvider } from "@/context/CartContext";
+import { AuthProvider } from "@/context/AuthContext";
 import { CartDrawer } from "@/components/CartDrawer";
 import "./globals.css";
 
@@ -32,11 +33,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} bg-black text-white antialiased overflow-x-hidden`}
       >
-        <CartProvider>
-          <Navbar />
-          <CartDrawer />
-          {children}
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Navbar />
+            <CartDrawer />
+            {children}
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

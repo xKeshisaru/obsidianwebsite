@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Bean, ShoppingBag } from "lucide-react";
+import { Bean, ShoppingBag, User } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/context/AuthContext";
 
 export function Navbar() {
     const { toggleCart, cartCount } = useCart();
+    const { user } = useAuth();
 
     return (
         <nav className="fixed top-0 left-0 w-full z-40 p-6 mix-blend-difference flex justify-between items-center pointer-events-none text-white">
@@ -21,6 +23,17 @@ export function Navbar() {
                 <Link href="/about" className="text-xs font-sans tracking-[0.2em] border-b border-white/0 hover:border-white transition-all">
                     RITUAL
                 </Link>
+
+                {user ? (
+                    <Link href="/account" className="group p-2 hover:bg-white/10 rounded-full transition-colors" title="Account">
+                        <User className="w-5 h-5 text-white/90" />
+                    </Link>
+                ) : (
+                    <Link href="/login" className="text-xs font-sans tracking-[0.2em] border-b border-white/0 hover:border-white transition-all">
+                        SIGN IN
+                    </Link>
+                )}
+
                 <button
                     onClick={toggleCart}
                     className="group relative p-2 hover:bg-white/10 rounded-full transition-colors"
